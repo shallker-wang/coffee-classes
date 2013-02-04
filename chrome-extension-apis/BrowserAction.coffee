@@ -1,4 +1,3 @@
-# Browser Action
 # @description A class to manage Chrome extenion BrowserAction's APIs
 # @author shallker.wang@profero.com
 
@@ -9,14 +8,22 @@ class BrowserAction
   @openTab: (url)->
     chrome.tabs.create url: url
 
-  @setBadgeTip: (tip)->
-    chrome.browserAction.setBadgeText text: String tip
+  @setBadge: (text)->
+    chrome.browserAction.setBadgeText text: String text
 
-  @clearBadgeTip: ->
-    @setBadgeTip ''
+  @clearBadge: ->
+    @setBadge ''
 
-  @setToolTip: (tip)->
-    chrome.browserAction.setTitle title: String tip
+  # onGet = (text)->
+  @getBadge: (onGet)->
+    chrome.browserAction.getBadgeText {}, onGet
+
+  # onGet = (text)->
+  @getTabBadge: (tid, onGet)->
+    chrome.browserAction.getBadgeText tabId: tid, onGet
+
+  @setTitle: (text)->
+    chrome.browserAction.setTitle title: String text
 
   @listenClick: (listener)->
     chrome.browserAction.onClicked.addListener listener
