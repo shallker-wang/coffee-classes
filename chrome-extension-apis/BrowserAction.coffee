@@ -1,3 +1,4 @@
+# Browser Action
 # @description A class to manage Chrome extenion BrowserAction's APIs
 # @author shallker.wang@profero.com
 
